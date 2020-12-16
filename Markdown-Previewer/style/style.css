@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: yellow;
+}
+
+.container {
+  position: relative;
+}
+
+.editor-area {
+  position: absolute;
+  left: 15px;
+  display: inline-block;
+  width: 500px;
+  height: 800px;
+}
+
+#preview {
+  box-shadow: -10px 10px 1px black;
+  position: absolute;
+  margin: 10px;
+  padding: 20px;
+  right: 20px;
+  height: 900px;
+  background-color: rgb(189, 197, 177);
+}
+
+#textarea {
+  @extend .colorScheme;
+  width: 99%;
+  min-height: 200px;
+  margin-bottom: -5px;
+  resize: vertical;
+  outline: none;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+p code {
+  border: solid yellowgreen 1px;
+  height: auto;
+  background: brown;
+  color: black;
+}
+
+pre {
+  border-radius: 8px;
+  padding: 10px;
+  margin: 15px;
+  height: auto;
+  background-color: #fff;
+  color: black;
+}
+
+#preview blockquote {
+  border-left: 3px solid #224b4b;
+  color: #224b4b;
+  padding-left: 5px;
+  margin-left: 25px;
+}
+
+#preview h1 {
+  border-bottom: yellow solid 3px;
+}
+
+#preview h2 {
+  border-bottom: yellow solid 1px;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "markdown-previewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/w3renzo/Front-End-Libraries-Projects.git"
+  },
+  "author": "Renzo Barrios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w3renzo/Front-End-Libraries-Projects/issues"
+  },
+  "homepage": "https://github.com/w3renzo/Front-End-Libraries-Projects#readme",
+  "dependencies": {
+    "marked": "^1.2.7"
+  }
+}
