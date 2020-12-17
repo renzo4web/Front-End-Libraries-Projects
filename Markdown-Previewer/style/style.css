@@ -6,45 +6,66 @@
 body {
   background-color: yellow;
 }
-
-.container {
-  position: relative;
+.title {
+  text-align: left;
+  margin-left: 100px;
 }
 
-.editor-area {
-  position: absolute;
-  left: 15px;
-  display: inline-block;
-  width: 500px;
-  height: 800px;
+.container {
+  margin: 0 auto;
+  width: 1300px;
+}
+
+.editor-top {
+  border-radius: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
 }
 
 #preview {
+  display: inline-block;
+  border: solid 3px black;
   box-shadow: -10px 10px 1px black;
-  position: absolute;
-  margin: 10px;
-  padding: 20px;
-  right: 20px;
-  height: 900px;
-  background-color: rgb(189, 197, 177);
+  height: auto;
+  background-color: #fff;
+  margin: 25px 0px 100px 0px;
+  padding: 35px;
 }
 
-#textarea {
-  @extend .colorScheme;
-  width: 99%;
-  min-height: 200px;
-  margin-bottom: -5px;
-  resize: vertical;
+textarea {
+  display: inline;
+  margin: 17px 50px;
+  border: solid 3px black;
+  resize: none;
   outline: none;
-  padding-left: 5px;
-  padding-top: 5px;
+  box-shadow: -10px 10px 1px black;
+  height: 800px;
+  min-height: 200px;
+  padding: 30px;
   font-size: 12px;
 }
 
+footer {
+  margin-top: 20px;
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+/*Markdown */
 p code {
-  border: solid yellowgreen 1px;
   height: auto;
-  background: brown;
+  background: rgb(184, 184, 184);
   color: black;
 }
 
@@ -53,21 +74,21 @@ pre {
   padding: 10px;
   margin: 15px;
   height: auto;
-  background-color: #fff;
+  background-color: rgb(184, 184, 184);
   color: black;
 }
 
 #preview blockquote {
-  border-left: 3px solid #224b4b;
-  color: #224b4b;
+  border-left: 3px solid rgb(184, 184, 184);
+  color: black;
   padding-left: 5px;
   margin-left: 25px;
 }
 
 #preview h1 {
-  border-bottom: yellow solid 3px;
+  border-bottom: black solid 3px;
 }
 
 #preview h2 {
-  border-bottom: yellow solid 1px;
+  border-bottom: black solid 1px;
 }
