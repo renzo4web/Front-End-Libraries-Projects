@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://codepen.io/w3renzo/pen/MWjmVoj)
+[Live Demo Link](https://codepen.io/w3renzo/full/MWjmVoj)
 
 ## What I learned?
 
