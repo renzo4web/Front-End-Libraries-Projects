@@ -19,7 +19,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://w3renzo.github.io/Random-Quote-MachineFCC/)
+[Live Demo Link](https://codepen.io/w3renzo/full/JjKpzwL)
 
 
 ## What I learned?
