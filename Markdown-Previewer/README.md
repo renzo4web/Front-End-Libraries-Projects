@@ -23,12 +23,6 @@
 
 **In this project i learned to use a library in this case i used a markdown library**
 
-## Authors
-
-👤 **Author**
-
-- GitHub: [@w3renzo](https://github.com/w3renzo)
-- Twitter: [@w3renzo](https://twitter.com/w3renzo)
 
 ## 🤝 Contributing
 
