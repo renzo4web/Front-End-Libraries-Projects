@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,800&display=swap" rel="stylesheet">
+
+    <title>Drum Machine</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<main id="drum-machine">
+    <section class="btns">
+        <button class="drum-pad" id="Q">Q</button>
+        <button class="drum-pad" id="W">W</button>
+        <button class="drum-pad" id="E">E</button>
+        <button class="drum-pad" id="A">A</button>
+        <button class="drum-pad" id="S">S</button>
+        <button class="drum-pad" id="D">D</button>
+        <button class="drum-pad" id="Z">Z</button>
+        <button class="drum-pad" id="X">X</button>
+        <button class="drum-pad" id="C">C</button>
+
+    </section>
+    <section class="controls">
+
+        <button class="power control-btn">ON</button>
+
+        <div id="display">
+            <span class="sound-id">🤘🏼</span>
+        </div>
+        <input type="range" class="slider" min="0" max="100">
+
+        <button class="bank control-btn">Bank 1</button>
+    </section>
+
+</main>
+
+
+<script src="bankSounds.js"></script>
+<script src="app.js"></script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
