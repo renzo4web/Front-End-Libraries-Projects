@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24+5 Clock</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="container break">
+            <p id="break-label" >Break Length</p>
+            <button id="break-increment">⬆</button>
+            <b id="break-length">5</b>
+            <button id="break-decrement">⬇</button>
+        </div>
+        <div class="container session">
+            <p id="session-label">Session Length</p>
+            <button id="session-increment">⬆</button>
+            <b id="session-length">25</b>
+            <button id="session-decrement">⬇</button>
+        </div>
+
+
+        <div class="clock">
+            <p id="timer-label">Session</p>
+            <h1 id="time-left">25:00</h1>
+            <button id="start_stop" class="btn btn-play">play</button>
+            <button id="reset" class="btn btn-reset">reset</button>
+        </div>
+
+    </div>
+
+    <script src="./domElements.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>
