@@ -1,7 +1,7 @@
 let sessionLength = 25;
-let breakLength = 2;
+let breakLength = 5;
 let currTimeMin = sessionLength - 1;
-let min = 59;
+let min = 60;
 let timerId;
 
 const handleBtnSession = (btn) => {
@@ -9,7 +9,7 @@ const handleBtnSession = (btn) => {
 
   updateLengthsVals(currBtn);
   checkLength();
-  min = 59;
+  min = 60;
   currTimeMin = sessionLength - 1;
   toDisplay(sessionLengthDisplay, sessionLength);
   toDisplay(breakLengthDisplay, breakLength);
@@ -39,18 +39,19 @@ btnsBreak.forEach((btn) => btn.addEventListener('click', handleBtnSession));
 btnsSession.forEach((btn) => btn.addEventListener('click', handleBtnSession));
 
 const updateLeftTime = () => {
+
   if (min > 0) {
     min--;
-  }else {
+  } else {
     currTimeMin--;
-    min = 59
+    min = 60;
   }
 
   let secDisplay = (min >= 10) ? `${min}` : `0${min}`;
   let minDisplay = (currTimeMin >= 10) ? `${currTimeMin}` : `0${currTimeMin}`;
   timeLeft.textContent = `${minDisplay}:${secDisplay}`;
 
-  if (currTimeMin <= 0 && min <= 0) {
+  if (currTimeMin <= 0 && min <= 1) {
     if (timerLabel.textContent === 'Session') {
       timerLabel.textContent = 'BREAK!!!!';
       currTimeMin = breakLength - 1;
@@ -58,30 +59,41 @@ const updateLeftTime = () => {
       timerLabel.textContent = 'Session';
       currTimeMin = sessionLength - 1;
     }
-    min = 59
+    min = 60;
 
   }
 
 };
 
 btnStartStop.addEventListener('click', () => {
-
-  (btnStartStop.textContent === '▶')
-      ? btnStartStop.textContent = '⏹'
-      : btnStartStop.textContent = '▶';
-
+  updateBtn();
   if (btnStartStop.textContent !== '⏹') {
     clearInterval(timerId);
     return;
   }
 
-  timerId = setInterval(updateLeftTime, 100);
+  timerId = setInterval(updateLeftTime, 1000);
 
 });
 
-btnReset.addEventListener('click', () => {
+const updateBtn = () => {
+
+  (btnStartStop.textContent === '▶')
+      ? btnStartStop.textContent = '⏹'
+      : btnStartStop.textContent = '▶';
+};
+
+const resetTimer = ()=>{
   clearInterval(timerId);
+  sessionLength = 25;
+  breakLength = 5;
   currTimeMin = sessionLength - 1;
-  min = 59;
+  toDisplay(sessionLengthDisplay, sessionLength);
+  toDisplay(breakLengthDisplay, breakLength);
+  min = 60;
   timeLeft.textContent = `${sessionLength}:00`;
-});
+  btnStartStop.textContent = '▶';
+}
+
+
+btnReset.addEventListener('click', resetTimer);
