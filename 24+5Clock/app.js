@@ -9,11 +9,13 @@ const handleBtnSession = (btn) => {
 
   updateLengthsVals(currBtn);
   checkLength();
-  min = 60;
   currTimeMin = sessionLength - 1;
   toDisplay(sessionLengthDisplay, sessionLength);
   toDisplay(breakLengthDisplay, breakLength);
-  timeLeft.textContent = `${sessionLength}:00`;
+
+  timeLeft.textContent = `${(sessionLength >= 10) ? sessionLength : '0' +
+      sessionLength}:00`;
+  min = 60;
 };
 
 const updateLengthsVals = (btn) => {
@@ -38,7 +40,27 @@ const checkLength = () => {
 btnsBreak.forEach((btn) => btn.addEventListener('click', handleBtnSession));
 btnsSession.forEach((btn) => btn.addEventListener('click', handleBtnSession));
 
+const addZeros = (domElement, time) => {
+  let secDisplay = (min >= 10) ? `${min}` : `0${min}`;
+  let minDisplay = (time >= 10) ? `${time}` : `0${time}`;
+  domElement.textContent = `${minDisplay}:${secDisplay}`;
+};
+
 const updateLeftTime = () => {
+
+  if (currTimeMin <= 0 && min <= 0) {
+    if (timerLabel.textContent === 'Session') {
+      timerLabel.textContent = 'Break';
+      currTimeMin = breakLength - 1;
+      audio.play();
+    } else {
+      timerLabel.textContent = 'Session';
+      currTimeMin = sessionLength - 1;
+      audio.play();
+    }
+
+    min = 60;
+  }
 
   if (min > 0) {
     min--;
@@ -47,27 +69,21 @@ const updateLeftTime = () => {
     min = 60;
   }
 
-  let secDisplay = (min >= 10) ? `${min}` : `0${min}`;
-  let minDisplay = (currTimeMin >= 10) ? `${currTimeMin}` : `0${currTimeMin}`;
-  timeLeft.textContent = `${minDisplay}:${secDisplay}`;
-
-  if (currTimeMin <= 0 && min <= 0) {
-    if (timerLabel.textContent === 'Session') {
-      timerLabel.textContent = 'Break';
-      currTimeMin = breakLength;
-      audio.play();
-    } else {
-      timerLabel.textContent = 'Session';
-      currTimeMin = sessionLength;
-      audio.play();
-    }
-    min = 60;
-
-  }
+  addZeros(timeLeft, currTimeMin);
 
 };
 
+const freezeBtns = (btnGroup, remove) => {
+  if (remove) {
+    btnGroup.forEach(btn => btn.disabled = true);
+    return;
+  }
+  btnGroup.forEach(btn => btn.disabled = false);
+};
+
 btnStartStop.addEventListener('click', () => {
+  freezeBtns(btnsBreak, true);
+  freezeBtns(btnsSession, true);
   updateBtn();
   if (btnStartStop.textContent !== '⏹') {
     clearInterval(timerId);
@@ -85,18 +101,25 @@ const updateBtn = () => {
       : btnStartStop.textContent = '▶';
 };
 
-const resetTimer = () => {
-  clearInterval(timerId);
-  audio.pause()
-  audio.currentTime = 0;
+const defaultTime = () => {
   sessionLength = 25;
   breakLength = 5;
+  min = 60;
+};
+
+const resetTimer = () => {
+  clearInterval(timerId);
+  audio.pause();
+  audio.currentTime = 0;
+  defaultTime();
+
+  freezeBtns(btnsBreak, false);
+  freezeBtns(btnsSession, false);
+
   toDisplay(sessionLengthDisplay, sessionLength);
   toDisplay(breakLengthDisplay, breakLength);
-  min = 60;
-  timeLeft.textContent = `${sessionLength}:00`;
-  timerLabel.textContent = 'Session';
-
+  toDisplay(timeLeft, `${sessionLength}:00`);
+  toDisplay(timerLabel, 'Session');
   btnStartStop.textContent = '▶';
   currTimeMin = sessionLength - 1;
 };
