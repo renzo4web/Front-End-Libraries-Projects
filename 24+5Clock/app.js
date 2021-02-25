@@ -51,13 +51,15 @@ const updateLeftTime = () => {
   let minDisplay = (currTimeMin >= 10) ? `${currTimeMin}` : `0${currTimeMin}`;
   timeLeft.textContent = `${minDisplay}:${secDisplay}`;
 
-  if (currTimeMin <= 0 && min <= 1) {
+  if (currTimeMin <= 0 && min <= 0) {
     if (timerLabel.textContent === 'Session') {
-      timerLabel.textContent = 'BREAK!!!!';
-      currTimeMin = breakLength - 1;
+      timerLabel.textContent = 'Break';
+      currTimeMin = breakLength;
+      audio.play();
     } else {
       timerLabel.textContent = 'Session';
-      currTimeMin = sessionLength - 1;
+      currTimeMin = sessionLength;
+      audio.play();
     }
     min = 60;
 
@@ -72,7 +74,7 @@ btnStartStop.addEventListener('click', () => {
     return;
   }
 
-  timerId = setInterval(updateLeftTime, 1000);
+  timerId = setInterval(updateLeftTime, 100);
 
 });
 
@@ -83,17 +85,20 @@ const updateBtn = () => {
       : btnStartStop.textContent = '▶';
 };
 
-const resetTimer = ()=>{
+const resetTimer = () => {
   clearInterval(timerId);
+  audio.pause()
+  audio.currentTime = 0;
   sessionLength = 25;
   breakLength = 5;
-  currTimeMin = sessionLength - 1;
   toDisplay(sessionLengthDisplay, sessionLength);
   toDisplay(breakLengthDisplay, breakLength);
   min = 60;
   timeLeft.textContent = `${sessionLength}:00`;
-  btnStartStop.textContent = '▶';
-}
+  timerLabel.textContent = 'Session';
 
+  btnStartStop.textContent = '▶';
+  currTimeMin = sessionLength - 1;
+};
 
 btnReset.addEventListener('click', resetTimer);

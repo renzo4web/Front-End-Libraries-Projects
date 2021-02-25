@@ -6,3 +6,4 @@ const timeLeft = document.getElementById('time-left');
 const btnStartStop = document.getElementById('start_stop');
 const btnReset = document.getElementById('reset');
 const timerLabel = document.getElementById('timer-label');
+const audio = document.getElementById('beep');
