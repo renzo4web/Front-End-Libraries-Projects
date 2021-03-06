@@ -6,38 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24+5 Clock</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
 
         <div class="container break">
-            <p id="break-label" >Break Length</p>
-            <button id="break-increment">⬆</button>
-            <b id="break-length">5</b>
-            <button id="break-decrement">⬇</button>
+            <p id="break-label">Break Length</p>
+            <div class="controls">
+                <button class="btn" id="break-increment">⬆</button>
+                <b id="break-length">5</b>
+                <button class="btn" id="break-decrement">⬇</button>
+            </div>
         </div>
         <div class="container session">
-            <p id="session-label">Session Length</p>
-            <button id="session-increment">⬆</button>
-            <b id="session-length">25</b>
-            <button id="session-decrement">⬇</button>
+            <div class="controls">
+                <p id="session-label">Session Length</p>
+                <button class="btn" id="session-increment">⬆</button>
+                <b id="session-length">25</b>
+                <button class="btn" id="session-decrement">⬇</button>
+            </div>
         </div>
 
-
-        <div class="clock">
-            <p id="timer-label">Session</p>
-            <h1 id="time-left">25:00</h1>
-            <button id="start_stop" class="btn btn-play">▶</button>
-            <button id="reset" class="btn btn-reset">reset</button>
-            <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto" crossOrigin="anonymous"></audio>
-        </div>
-
+    </div>
+    <div class="clock">
+        <p id="timer-label">Session</p>
+        <h1 id="time-left">25:00</h1>
+        <button id="start_stop" class="btn btn-play">▶</button>
+        <button id="reset" class="btn btn-reset">reset</button>
+        <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"
+            crossOrigin="anonymous"></audio>
     </div>
 
     <script src="./domElements.js"></script>
     <script src="./app.js"></script>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 </body>
 
